@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TdcQutagConfig</class>
+ <widget class="QDialog" name="TdcQutagConfig">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>462</width>
+    <height>228</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>41</y>
+     <width>431</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QCheckBox" name="ckbCH0">
+      <property name="text">
+       <string>CH0</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="cmbCH0SignType">
+      <property name="currentText">
+       <string>Misc</string>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>LVTTL</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NIM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Misc</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QComboBox" name="cmbCH0Trigger">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>Falling Edge</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rising Edge</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QDoubleSpinBox" name="dsbCH0Threshold">
+      <property name="value">
+       <double>1.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QSpinBox" name="spbCH0Delay">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QSpinBox" name="spbCH0DeadTime">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QCheckBox" name="ckbCH1">
+      <property name="text">
+       <string>CH1</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="cmbCH1SignType">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>LVTTL</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NIM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Misc</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QComboBox" name="cmbCH1Trigger">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>Falling Edge</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rising Edge</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QDoubleSpinBox" name="dsbCH1Threshold">
+      <property name="value">
+       <double>1.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QSpinBox" name="spbCH1Delay">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QSpinBox" name="spbCH1DeadTime">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QCheckBox" name="ckbCH2">
+      <property name="text">
+       <string>CH2</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="cmbCH2SignType">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>LVTTL</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NIM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Misc</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QComboBox" name="cmbCH2Trigger">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>Falling Edge</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rising Edge</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QDoubleSpinBox" name="dsbCH2Threshold">
+      <property name="value">
+       <double>1.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QSpinBox" name="spbCH2Delay">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="5">
+     <widget class="QSpinBox" name="spbCH2DeadTime">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QCheckBox" name="ckbCH3">
+      <property name="text">
+       <string>CH3</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="cmbCH3SignType">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>LVTTL</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NIM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Misc</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QComboBox" name="cmbCH3Trigger">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>Falling Edge</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rising Edge</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QDoubleSpinBox" name="dsbCH3Threshold">
+      <property name="value">
+       <double>1.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QSpinBox" name="spbCH3Delay">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="5">
+     <widget class="QSpinBox" name="spbCH3DeadTime">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QCheckBox" name="ckbCH4">
+      <property name="text">
+       <string>CH4</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="cmbCH4SignType">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>LVTTL</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NIM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Misc</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QComboBox" name="cmbCH4Trigger">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>Falling Edge</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rising Edge</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QDoubleSpinBox" name="dsbCH4Threshold">
+      <property name="value">
+       <double>1.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QSpinBox" name="spbCH4Delay">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <widget class="QSpinBox" name="spbCH4DeadTime">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TekAWG5200</class>
+ <widget class="QDialog" name="TekAWG5200">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>517</width>
+    <height>337</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TekAWG5200</string>
+  </property>
+  <widget class="QPushButton" name="btnTest">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>270</y>
+     <width>80</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>test</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnOpenCh">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>220</y>
+     <width>80</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开信道</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnQuery">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>270</y>
+     <width>80</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>query</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCloseCh">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>220</y>
+     <width>80</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>关闭信道</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>42</y>
+     <width>430</width>
+     <height>173</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="3">
+     <widget class="QLineEdit" name="lneVisaAddr">
+      <property name="text">
+       <string>USB0::0x0699::0x0503::B040956::INSTR</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="btnOpenVisa">
+      <property name="text">
+       <string>打开VISA</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="btnCloseVisa">
+      <property name="text">
+       <string>关闭VISA</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>自定义命令</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" rowspan="2" colspan="3">
+     <widget class="QTextEdit" name="txeCmd"/>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="btnSetCmd">
+      <property name="text">
+       <string>写入命令</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="btnReadCmd">
+      <property name="text">
+       <string>读取命令</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>信道</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Marker</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>延时（ps）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QComboBox" name="cmbChannel">
+      <item>
+       <property name="text">
+        <string>CH1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CH2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CH3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CH4</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QComboBox" name="cmbMarker">
+      <item>
+       <property name="text">
+        <string>Marker1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Marker2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Marker3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Marker4</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QSpinBox" name="spbDelay">
+      <property name="minimum">
+       <number>-2000</number>
+      </property>
+      <property name="maximum">
+       <number>2000</number>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QPushButton" name="btnSetSKEW">
+      <property name="text">
+       <string>模拟输出延时</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QPushButton" name="btnSetMarkerDelay">
+      <property name="text">
+       <string>数字输出延时</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
