@@ -1,14 +1,6 @@
 #include "mainwindow.h"
 
-double* normalize(int *array, int totalNumber, double normNumber)
-{
-    double *normalizedArray = new double[totalNumber]();
-    for (int i = 0; i < totalNumber; i++)
-        normalizedArray[i] = array[i] / normNumber;
-    return normalizedArray;
-}
-
-void MainWindow::initializeCustomizedFunctions()
+void MainWindow::startUpCustomizedFunctions()
 {
 //    spad = new Spd300Qsky(1,this);
 //    spad->set_delay(1.65);
@@ -177,4 +169,10 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
 //        qDebug() << "single count now: " << singleCount;
 //        fStream << QString::number(timeNow) << "\t"
 //                << QString::number(singleCount) << "\n";
+}
+
+void MainWindow::wrapUpCustomizedFunctions()
+{
+//    收尾工作
+
 }

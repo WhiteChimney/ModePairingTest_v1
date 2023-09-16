@@ -73,8 +73,8 @@ private:
     QVector<double> m_histogramY;
     QVector<double> m_histogramX;
 
-
-    void initializeCustomizedFunctions();
+    void startUpCustomizedFunctions();
+    void wrapUpCustomizedFunctions();
 
     //---------------------------------槽函数-------------------------------------------------
     void on_btn_set_filePath();

@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lneStartPeri->SetUnitText("Hz");
     ui->lneSysPeri->SetUnitText("Hz");
 
-    initializeCustomizedFunctions();
+    startUpCustomizedFunctions();
 
     m_timer = new QElapsedTimer;
     m_tdcQutag = new TdcQutag(this);
@@ -501,5 +501,7 @@ void MainWindow::on_plot_tdc()
     disconnect(m_tdcQutag,&TdcQutag::GetTimeStampsFinished,m_tdcQutagDataProcess,&TdcQutagDataProcess::reshapeTimeStamps);
     disconnect(m_tdcQutagDataProcess,&TdcQutagDataProcess::sendReTimeStamps,this,&MainWindow::on_reshape_time_stamps);
     disconnect(m_tdcQutagDataProcess,&TdcQutagDataProcess::sendReTimeStamps,this,&MainWindow::on_status_true);
+
+    wrapUpCustomizedFunctions();
 
 }
