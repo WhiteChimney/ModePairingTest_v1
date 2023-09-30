@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include <iostream>
 
 void MainWindow::startUpCustomizedFunctions()
 {
@@ -59,19 +60,19 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
     int channelSNPD = 3; // 超导信号的通道号
     int channelSPAD = 2; // 门控探测器信号的通道号
 
-    double sample = 10.0;         // TDC 以 1 ps 的精度读取数据，
+    double sample = 30.0;         // TDC 以 1 ps 的精度读取数据，
                                   // 我们以 sample ps 取一个数据点
                                   // 问天 SPAD 以 10 ps 精度扫描探测效率曲线
     double Izb = 0.0;                   // 用于表示 start 信号位置
     double T_SN;                  // 用于表示超导信号相对于start信号位置
-    int T = floor(20.0e3 / sample);
+    int T = floor(40.0e3 / sample);
                                   // IM 斩波后门宽
     int timebin = 0;              // 累计时间内发送的总脉冲数
-    double delaySN=floor((790.0e3)/sample);
+    double delaySN=floor((780.0e3)/sample);
                                   // 超导信号与时钟信号相对延迟：IDQ:768ns Qasky：830ns
 
-    int ST = floor(0.0e3 / sample);  // 2ns-SPAD端开门起始点
-    int T0 = floor(20.0e3 / sample); // 时域物体总长度，注意长度要小于斩波宽度
+    int ST = floor(17.0e3 / sample);  // 2ns-SPAD端开门起始点
+    int T0 = floor(6.0e3 / sample); // 时域物体总长度，注意长度要小于斩波宽度
 
     static int Iref = 0;        // 参考端时域响应位置，为 0 至 T-1
     static int *Iref_sum = new int[T]();    // 参考端时域响应总和

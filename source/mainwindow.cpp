@@ -320,8 +320,7 @@ void MainWindow::SimplePlot (QVector<double> &inputX, QVector<double> &inputY)
     customPlot->yAxis->setTickLabels(true);
 
     customPlot->xAxis->rescale(true);
-//    customPlot->yAxis->rescale(true);
-    customPlot->yAxis->rescale(false);
+    customPlot->yAxis->rescale(true);
 
     customPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 
@@ -491,10 +490,6 @@ void MainWindow::on_plot_tdc()
 //            histogramX2.clear(); histogramX2.resize(100); histogramY2.clear(); histogramY2.resize(100);
 //            histogramX3.clear(); histogramX3.resize(100); histogramY3.clear(); histogramY3.resize(100);
 //            histogramX4.clear(); histogramX4.resize(100); histogramY4.clear(); histogramY4.resize(100);
-            coinHistogramX.clear();
-            coinHistogramX.resize(100);
-            coinHistogramY.clear();
-            coinHistogramY.resize(100);
             ui->btnPlotClear->on_clicked();
         }
 //        break;
