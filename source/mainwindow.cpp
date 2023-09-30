@@ -320,7 +320,8 @@ void MainWindow::SimplePlot (QVector<double> &inputX, QVector<double> &inputY)
     customPlot->yAxis->setTickLabels(true);
 
     customPlot->xAxis->rescale(true);
-    customPlot->yAxis->rescale(true);
+//    customPlot->yAxis->rescale(true);
+    customPlot->yAxis->rescale(false);
 
     customPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 
@@ -444,9 +445,7 @@ void MainWindow::on_plot_tdc()
     m_tdcQutag->clearTimeStamps();
     m_timer->start();
     int idx = 0;
-//    timeNow += timeStep;
     while (ui->btnStop->on_get_state() == false)
-//    while (timeNow < timeStop)
     {
         while (! m_timer->hasExpired(time)) QCoreApplication::processEvents();
         m_tdcQutag->getTimeStamps();
@@ -454,6 +453,7 @@ void MainWindow::on_plot_tdc()
         while (!m_status) QCoreApplication::processEvents();
         m_status = 0;
 
+        qDebug() << "running...";
 
 //        histogramX1[idx] = idx;
 //        histogramX2[idx] = idx;
@@ -486,14 +486,18 @@ void MainWindow::on_plot_tdc()
 
         if (ui->btnPlotClear->on_get_state() == true)
         {
-            idx = 0;
-            histogramX1.clear(); histogramX1.resize(100); histogramY1.clear(); histogramY1.resize(100);
-            histogramX2.clear(); histogramX2.resize(100); histogramY2.clear(); histogramY2.resize(100);
-            histogramX3.clear(); histogramX3.resize(100); histogramY3.clear(); histogramY3.resize(100);
-            histogramX4.clear(); histogramX4.resize(100); histogramY4.clear(); histogramY4.resize(100);
+//            idx = 0;
+//            histogramX1.clear(); histogramX1.resize(100); histogramY1.clear(); histogramY1.resize(100);
+//            histogramX2.clear(); histogramX2.resize(100); histogramY2.clear(); histogramY2.resize(100);
+//            histogramX3.clear(); histogramX3.resize(100); histogramY3.clear(); histogramY3.resize(100);
+//            histogramX4.clear(); histogramX4.resize(100); histogramY4.clear(); histogramY4.resize(100);
+            coinHistogramX.clear();
+            coinHistogramX.resize(100);
+            coinHistogramY.clear();
+            coinHistogramY.resize(100);
             ui->btnPlotClear->on_clicked();
         }
-        break;
+//        break;
     }
 
     m_timer->elapsed();
