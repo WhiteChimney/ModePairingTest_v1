@@ -607,6 +607,16 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </widget>
+   <widget class="QLCDNumber" name="lcdTimer">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>340</y>
+      <width>351</width>
+      <height>101</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

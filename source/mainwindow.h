@@ -15,6 +15,8 @@
 #include "spd300qsky.h"
 #include "afg3000.h"
 
+#define ghostXpoints 37
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -39,6 +41,11 @@ signals:
     void singTest(Int64 &a);
 
 
+private slots:
+    void on_btnRunTdcConti_clicked();
+
+    void on_btnStop_clicked();
+
 private:
     Ui::MainWindow *ui;
     //---------------------------------成员变量-------------------------------------------------
@@ -61,17 +68,29 @@ private:
 
     AFG3000 *afg;
 
-    QFile *fFile = new QFile();
-    QTextStream fStream;
+    QFile *fOriginal = new QFile();
+    QTextStream fStreamOriginal;
+    QList<QFile*> fGhost;
+//    QFile *fGhost = new QFile();
+    QTextStream fStreamGhost;
 
 
     // 自定义时域符合
-
+    QTimer *totalTimer;
     QVector<double> coinHistogramX,
                     coinHistogramY;
 
     QVector<double> m_histogramY;
     QVector<double> m_histogramX;
+
+    double sample = 10.0;         // TDC 以 1 ps 的精度读取数据，
+                                  // 我们以 sample ps 取一个数据点
+    int T = floor(20.0e3 / sample);
+//                                       IM 斩波后门宽
+    double *Ghostnorm_TGI;
+    int timeCounter;
+    int nRefPulses[ghostXpoints] = {0};
+    int indexRef = 0;
 
     void startUpCustomizedFunctions();
     void wrapUpCustomizedFunctions();

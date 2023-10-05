@@ -92,7 +92,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    fFile->close();
     setIni();
     delete ui;
 }
@@ -123,12 +122,12 @@ void MainWindow::on_btn_set_filePath()
 
 void MainWindow::on_reshape_time_stamps(Int64 m_timeStampsOfCh[CH_NUM][BUFFER_SIZE], int m_numOfTSOfCh[5])
 {
-    qDebug() << m_numOfTSOfCh[0] << m_numOfTSOfCh[1] << m_numOfTSOfCh[2] << m_numOfTSOfCh[3];
+//    qDebug() << m_numOfTSOfCh[0] << m_numOfTSOfCh[1] << m_numOfTSOfCh[2] << m_numOfTSOfCh[3];
 
-    QString info = "Valid number for each channel is:" + QString::number(m_numOfTSOfCh[0]) + " "
-            + QString::number(m_numOfTSOfCh[1]) + " "+ QString::number(m_numOfTSOfCh[2]) + " "
-            + QString::number(m_numOfTSOfCh[3]) + " "+ QString::number(m_numOfTSOfCh[4]);
-    revInfo(true, 0, info);
+//    QString info = "Valid number for each channel is:" + QString::number(m_numOfTSOfCh[0]) + " "
+//            + QString::number(m_numOfTSOfCh[1]) + " "+ QString::number(m_numOfTSOfCh[2]) + " "
+//            + QString::number(m_numOfTSOfCh[3]) + " "+ QString::number(m_numOfTSOfCh[4]);
+//    revInfo(true, 0, info);
 }
 
 
@@ -452,7 +451,7 @@ void MainWindow::on_plot_tdc()
         while (!m_status) QCoreApplication::processEvents();
         m_status = 0;
 
-        qDebug() << "running...";
+//        qDebug() << "running...";
 
 //        histogramX1[idx] = idx;
 //        histogramX2[idx] = idx;
@@ -504,3 +503,5 @@ void MainWindow::on_plot_tdc()
     wrapUpCustomizedFunctions();
 
 }
+
+
