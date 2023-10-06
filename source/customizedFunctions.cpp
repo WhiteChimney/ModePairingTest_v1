@@ -43,7 +43,7 @@ void MainWindow::startUpCustomizedFunctions()
     connect(totalTimer,&QTimer::timeout,this,[=](){
         ui->lcdTimer->display(timeCounter++);});
 
-    QString originDataDir = "D:/Data/20231005/";
+    QString originDataDir = "D:/Data/20231006/";
     QDir dir;
     dir.setPath(originDataDir);
     if (!dir.exists())
@@ -51,10 +51,10 @@ void MainWindow::startUpCustomizedFunctions()
     QString originDataFile = originDataDir + "original.txt";
 
     fOriginal->setFileName(originDataFile);
-    fOriginal->open(QIODevice::WriteOnly | QIODevice::Text);
-    fStreamOriginal.setDevice(fOriginal);
+//    fOriginal->open(QIODevice::WriteOnly | QIODevice::Text);
+//    fStreamOriginal.setDevice(fOriginal);
 
-    QString ghostDataDir = "D:/Data/20231005/SPAD_3ns_eta0.2/";
+    QString ghostDataDir = "D:/Data/20231006/SPAD_1ns_eta0.1/";
     dir.setPath(ghostDataDir);
     if (!dir.exists())
         dir.mkdir(ghostDataDir);
@@ -114,7 +114,7 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
 
 //    int ST = floor(17.0e3 / sample);  // 2ns-SPAD端开门起始点
 //    int T0 = floor(6.0e3 / sample); // 时域物体总长度，注意长度要小于斩波宽度
-    int ST = floor(5.0e3 / sample);  // 2ns-SPAD端开门起始点
+    int ST = floor(8.0e3 / sample);  // 2ns-SPAD端开门起始点
     int T0 = floor(10.0e3 / sample); // 时域物体总长度，注意长度要小于斩波宽度
 
     static int Iref = 0;        // 参考端时域响应位置，为 0 至 T-1
@@ -180,11 +180,11 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
                     {
                         ui->btnStop->on_clicked();
                         on_btnStop_clicked();
-                        qDebug() << "out----------------------";
-                        qDebug() << "当前周期内的总脉冲数：" << timebin/timeN
-                                 << "超导单道计数： " << sum(Iref_sum,T)/timeN
-                                 << "\tSPAD 单道计数：" << Itest_sum/timeN
-                                 << "\t符合计数： " << sum(Icoin_sum,T)/timeN;
+                        qDebug() << "out---------------------- done";
+//                        qDebug() << "当前周期内的总脉冲数：" << timebin/timeN
+//                                 << "超导单道计数： " << sum(Iref_sum,T)/timeN
+//                                 << "\tSPAD 单道计数：" << Itest_sum/timeN
+//                                 << "\t符合计数： " << sum(Icoin_sum,T)/timeN;
                     }
                 }
             }
@@ -238,13 +238,26 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
     delete [] cov_QTGI1;
     delete [] Var_I_ref;
 
-
+    //                        qDebug() << "当前周期内的总脉冲数：" << timebin/timeN
+    //                                 << "超导单道计数： " << sum(Iref_sum,T)/timeN
+    //                                 << "\tSPAD 单道计数：" << Itest_sum/timeN
+    //                                 << "\t符合计数： " << sum(Icoin_sum,T)/timeN;
+    double freq = 1e6;
+    double ratio = timebin/timeN/freq;
+    double sSpad = Itest_sum/timeN/ratio;
+    double sSnpd = sum(Iref_sum,T)/timeN/ratio;
+    double cCoin = sum(Icoin_sum,T)/timeN/ratio;
+    double mu = sSpad*sSnpd/cCoin/freq;
+    ui->lcdSpad->display(sSpad);
+    ui->lcdSnpd->display(sSnpd);
+    ui->lcdCoin->display(cCoin);
+    ui->lcdMu->display(mu);
 }
 
 void MainWindow::wrapUpCustomizedFunctions()
 {
 //    收尾工作
-    fOriginal->close();
+//    fOriginal->close();
 
 //    fStreamGhost << "Total time elapsed: " << timeCounter << " s\n\n";
 //    fStreamGhost << "Sample time: " << sample << " ps\n\n";
