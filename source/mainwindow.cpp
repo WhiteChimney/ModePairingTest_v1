@@ -475,6 +475,23 @@ void MainWindow::on_plot_tdc()
 //                   histogramX3, histogramY3, histogramX4, histogramY4);
 
 
+        if (timeNow <= timeStop)
+        {
+            timeNow += timeStep;
+            spad->set_delay(timeNow);
+            fStreamOriginal << m_tdcQutagDataProcess->on_get_number_of_channel(3) << "\n";
+            qDebug() << timeNow;
+
+        }
+        else
+        {
+            qDebug() << "Delay scanning finished. ";
+            ui->btnStop->on_clicked();
+            on_btnStop_clicked();
+            break;
+        }
+
+
 
         if(ui->btnStop->on_get_state() == true)
         {
