@@ -479,7 +479,7 @@ void MainWindow::on_plot_tdc()
         {
             timeNow += timeStep;
             spad->set_delay(timeNow);
-            fStreamOriginal << m_tdcQutagDataProcess->on_get_number_of_channel(3) << "\n";
+            fStreamOriginal << m_tdcQutagDataProcess->on_get_number_of_channel(1) << "\n";
             qDebug() << timeNow;
 
         }

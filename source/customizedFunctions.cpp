@@ -72,14 +72,14 @@ void MainWindow::startUpCustomizedFunctions()
         qDebug() << nRefPulses[i];
 
 // 扫探测器门宽
-    timeStart = 4.00;
-    timeStop = 11.00;
+    timeStart = 5.50;
+    timeStop = 10.50;
     timeStep = 0.01;
     timeNow = timeStart;
-    spad = new Spd300Qsky(0,this);
+    spad = new Spd300Qsky(1,this);
     spad->set_delay(timeStart);
 
-    QString originDataDir = "D:/Data/20231008/";
+    QString originDataDir = "D:/Data/20240220/";
     dir.setPath(originDataDir);
     if (!dir.exists())
         dir.mkdir(originDataDir);

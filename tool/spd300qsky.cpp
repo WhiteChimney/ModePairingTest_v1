@@ -26,8 +26,12 @@ Spd300Qsky::~Spd300Qsky()
 void Spd300Qsky::scan_port(int portNumber, QString *portName)                  //扫描串口
 {
     port_string_line_.clear();
+    int i = 0;
     foreach(const QSerialPortInfo &info,QSerialPortInfo::availablePorts()) //查找可用的串口
-    port_string_line_ +=info.portName();
+    {
+        port_string_line_ +=info.portName();
+        qDebug() << "串口号：" << i++ << "\t串口名：" << info.portName();
+    }
 
     *portName = port_string_line_[portNumber];
 
