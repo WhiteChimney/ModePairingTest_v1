@@ -61,24 +61,16 @@ private:
     QElapsedTimer * m_timer;
     Bln32 m_status = 0;
 
-    // 自定义扫延时
-
-    Spd300Qsky *spad;
-    double timeStart, timeStop, timeStep, timeNow;
-
-    AFG3000 *afg;
-
-    QFile *fOriginal = new QFile();
-    QTextStream fStreamOriginal;
     QList<QFile*> fGhost;
 //    QFile *fGhost = new QFile();
     QTextStream fStreamGhost;
+    QString ghostDataDir;
 
 
     // 自定义时域符合
     QTimer *totalTimer;
     QVector<double> coinHistogramX,
-                    coinHistogramY;
+                    coinHistogramY1, coinHistogramY2;
 
     QVector<double> m_histogramY;
     QVector<double> m_histogramX;
@@ -87,7 +79,12 @@ private:
                                   // 我们以 sample ps 取一个数据点
     int T = floor(20.0e3 / sample);
 //                                       IM 斩波后门宽
-    double *Ghostnorm_TGI;
+    double *Ghostnorm_TGI, *Ghostnorm_TGI_classic, *Icoin_ave, *cov_QTGI1;
+    int *Iref_sum, *Icoin_sum;
+//    int Itest_sum;
+//    int timebin;
+//    double timeN;
+//    double *Iref_ave, *Iref_2_ave, *Var_I_ref;
     int timeCounter;
     int nRefPulses[ghostXpoints] = {0};
     int indexRef = 0;
@@ -114,6 +111,8 @@ private:
     //-----------------------------------------函数-------------------------------------------
     //绘图函数
     void SimplePlot (QVector<double> &inputX, QVector<double> &inputY);
+    void SimplePlot (QVector<double> &inputX0, QVector<double> &inputY0,
+                     QVector<double> &inputX1, QVector<double> &inputY1);
     void SimplePlot (QVector<double> &inputX0, QVector<double> &inputY0,
                      QVector<double> &inputX1, QVector<double> &inputY1,
                      QVector<double> &inputX2, QVector<double> &inputY2,

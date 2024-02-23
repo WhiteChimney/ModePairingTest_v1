@@ -329,6 +329,42 @@ void MainWindow::SimplePlot (QVector<double> &inputX, QVector<double> &inputY)
 }
 
 void MainWindow::SimplePlot (QVector<double> &inputX0, QVector<double> &inputY0,
+                             QVector<double> &inputX1, QVector<double> &inputY1)
+{  // 这里输入的数据似乎只能是double类的，注意要绘图的东西都得强制转化为double
+
+    QCustomPlot * customPlot = ui->customPlot;
+
+    //创建画布
+    customPlot->addGraph();
+    customPlot->graph(0)->setPen(QPen(Qt::darkBlue));
+    customPlot->addGraph();
+    customPlot->graph(1)->setPen(QPen(Qt::darkGreen));
+
+
+    //设置画布上的点数据
+    customPlot->graph(0)->setData(inputX0,inputY0);
+    customPlot->graph(1)->setData(inputX1,inputY1);
+
+
+    //设置坐标轴标签
+    customPlot->xAxis->setLabel("x");
+    customPlot->yAxis->setLabel("y");
+    customPlot->xAxis->setVisible(true);
+    customPlot->xAxis->setTickLabels(true);
+    customPlot->yAxis->setVisible(true);
+    customPlot->yAxis->setTickLabels(true);
+
+    customPlot->xAxis->rescale(true);
+    customPlot->yAxis->rescale(true);
+
+    customPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+
+    //    customPlot->show();
+
+    customPlot->replot();
+}
+
+void MainWindow::SimplePlot (QVector<double> &inputX0, QVector<double> &inputY0,
                              QVector<double> &inputX1, QVector<double> &inputY1,
                              QVector<double> &inputX2, QVector<double> &inputY2,
                              QVector<double> &inputX3, QVector<double> &inputY3)
@@ -442,7 +478,7 @@ void MainWindow::on_plot_tdc()
 
     m_tdcQutag->clearTimeStamps();
     m_timer->start();
-    int idx = 0;
+//    int idx = 0;
     while (ui->btnStop->on_get_state() == false)
     {
         while (! m_timer->hasExpired(time)) QCoreApplication::processEvents();
@@ -473,24 +509,6 @@ void MainWindow::on_plot_tdc()
 
 //        SimplePlot(histogramX1, histogramY1, histogramX2, histogramY2,
 //                   histogramX3, histogramY3, histogramX4, histogramY4);
-
-
-        if (timeNow <= timeStop)
-        {
-            timeNow += timeStep;
-            spad->set_delay(timeNow);
-            fStreamOriginal << m_tdcQutagDataProcess->on_get_number_of_channel(3) << "\n";
-            qDebug() << timeNow;
-
-        }
-        else
-        {
-            qDebug() << "Delay scanning finished. ";
-            ui->btnStop->on_clicked();
-            on_btnStop_clicked();
-            break;
-        }
-
 
 
         if(ui->btnStop->on_get_state() == true)
