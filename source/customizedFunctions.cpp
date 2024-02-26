@@ -49,7 +49,7 @@ void MainWindow::startUpCustomizedFunctions()
     // ***************************************************************
     // 数据路径
     QDir dir;
-    ghostDataDir = "D:/Data/20240220/SPAD_1ns_eta0.2/";
+    ghostDataDir = "D:/Data/20240220/SPAD_1ns_eta0.1_u0.1_XCH=20/";
     // ****************************************************************
 
     dir.setPath(ghostDataDir);
@@ -103,7 +103,7 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
 
 
     // ****************************************************************
-
+    // 时域参数
     int channelStart = 1; // Start 信号的通道号
     int channelSNPD = 2; // 超导信号的通道号
     int channelSPAD = 3; // 门控探测器信号的通道号
@@ -115,17 +115,17 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
     double T_SN;                  // 用于表示超导信号相对于start信号位置
 //    int T = floor(20.0e3 / sample);
 //                                   IM 斩波后门宽
-    static int timebin = 0;              // 累计时间内发送的总脉冲数
+    static long long timebin = 0;              // 累计时间内发送的总脉冲数
 //    timebin = 0;
 //    double delaySN=floor((960.0e3)/sample);
-    double delaySN=floor((295.0e3)/sample);
-//    double delaySN=floor((78.0e3)/sample);
+//    double delaySN=floor((295.0e3)/sample);
+    double delaySN=floor((42.0e3)/sample);
                                   // 超导信号与时钟信号相对延迟：IDQ:768ns Qasky：830ns
 
 //    int ST = floor(17.0e3 / sample);  // 2ns-SPAD端开门起始点
 //    int T0 = floor(6.0e3 / sample); // 时域物体总长度，注意长度要小于斩波宽度
-    int ST = floor(0.0e3 / sample);  // 2ns-SPAD端开门起始点
-    int T0 = floor(20.0e3 / sample); // 时域物体总长度，注意长度要小于斩波宽度
+    int ST = floor(5.0e3 / sample);  // 2ns-SPAD端开门起始点
+    int T0 = floor(8e3 / sample); // 时域物体总长度，注意长度要小于斩波宽度
 
 
     // ******************************************************************
@@ -273,7 +273,11 @@ void MainWindow::on_read_time_stamps(Int64 timeStamps[BUFFER_SIZE], Int8 channel
         //                                 << "\tSPAD 单道计数：" << Itest_sum/timeN
         //                                 << "\t符合计数： " << sum(Icoin_sum,T)/timeN;
 
-        double freq = 3e6;
+        // ************************************
+        // 重复频率
+        double freq = 10e6;
+        // ************************************
+
         double ratio = timebin/timeN/freq;
         double sSpad = Itest_sum/timeN/ratio;
         double sSnpd = sum(Iref_sum,T)/timeN/ratio;

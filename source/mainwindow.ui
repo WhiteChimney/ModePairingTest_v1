@@ -17,8 +17,8 @@
    <widget class="QTextEdit" name="txeRetInfo">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>250</y>
+      <x>730</x>
+      <y>190</y>
       <width>381</width>
       <height>271</height>
      </rect>
@@ -30,14 +30,14 @@
       <x>10</x>
       <y>0</y>
       <width>381</width>
-      <height>241</height>
+      <height>511</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="btnTest">
     <property name="geometry">
      <rect>
-      <x>1090</x>
+      <x>1120</x>
       <y>250</y>
       <width>80</width>
       <height>23</height>
@@ -230,8 +230,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="btnReadTimeStamps">
     <property name="geometry">
      <rect>
-      <x>1080</x>
-      <y>210</y>
+      <x>1120</x>
+      <y>200</y>
       <width>80</width>
       <height>23</height>
      </rect>
@@ -642,10 +642,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QLCDNumber" name="lcdTimer">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>340</y>
-      <width>351</width>
-      <height>101</height>
+      <x>910</x>
+      <y>470</y>
+      <width>291</width>
+      <height>51</height>
      </rect>
     </property>
    </widget>
